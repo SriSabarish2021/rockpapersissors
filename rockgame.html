@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENTERTINE HERE</title>
+    <meta title="name" content="Sri Sabarish">
+    <meta title="about us" content="im here to develope a games">
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* BODY STYLING */
+
+body{
+    height: 100vh;
+    width: 100vw;
+/*     background: rgb(156,222,222);
+    background: linear-gradient(349deg, rgba(156,222,222,1) 0%, rgba(196,190,158,1) 66%); */
+    background: url('image1_0 (4).jpg');
+    background-size: 100%;
+    background-size: cover;
+    user-select: none;
+}
+body::before{
+    opacity: 0.5
+}
+
+/* CONTENT STYLING */
+
+#allcon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+
+}
+#top{
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 52px;
+    font-weight: 700;
+}
+#main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+/* BUTTON STYLING */
+
+
+#button a img{
+    border-radius: 30%;
+    height: 100px;
+    width: 100px;
+    padding: 10px;
+    border: 2px solid black;
+}
+#button a{
+    padding: 30px;
+    padding-top: 40px;
+}
+#button a img:hover{
+    padding: 0;
+    transition-duration: .5s;
+    transition-timing-function: ease-in-out;
+}
+#whoplays{
+    font-size: 20px;
+    padding: 30px;
+    padding-top: 40px;
+}
+#whoplays div h3{
+    padding: 10px;
+}
+#whoplays div h3 .pla{
+    color: blueviolet;
+}
+#whoplays div h3 .com{
+    color: rgb(226, 43, 43);
+}
+
+#result{
+    font-family: "Lugrasimo", cursive;
+    font-weight: 400;
+    font-style: bold;
+    font-size: 40px;
+}
+
+/* ANIMATION STYLING */
+
+.video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -11;
+    display: none;  
+  }
+  
+  #background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the entire container */
+  }
+
+
+/* MEDIA QUERRY*/
+
+@media screen and (min-width:330px) and (max-width:712px) {
+    #top{
+        font-family: "Pacifico", cursive;
+        font-weight: 200;
+        font-style: normal;
+        font-size: 30px;
+
+    }
+    #result{
+        font-family: "Lugrasimo", cursive;
+        font-weight: 200;
+        font-style: bold;
+        font-size: 30px;
+    }
+
+
+}
+
+
+@media screen and (max-width:329px) {
+    #button a img{
+        border-radius: 30%;
+        height: 80px;
+        width: 80px;
+        padding: 10px;
+        border: 2px solid black;
+    }
+    #top{
+        font-family: "Pacifico", cursive;
+        font-weight: 200;
+        font-style: normal;
+        font-size: 22px;
+
+    }
+    #result{
+        font-family: "Lugrasimo", cursive;
+        font-weight: 200;
+        font-style: bold;
+        font-size: 24px;
+    }
+    #whoplays{
+        font-size: 20px;
+        padding: 30px;
+        padding-top: 0px;
+    }
+    
+
+}
+    </style>
+</head>
+<body>
+    <div class="img"></div>
+    <article id="allcon">
+        <header>
+            <section id="top">
+                <h1>ROCK-PAPER-SISSORS</h1>
+            </section>
+        </header>
+        <main id="main">
+            <div class="video-container">
+            <video autoplay muted loop id="background-video">
+                <source src="E:\sabarish Frnt end dev\js eng\Animation - 1714295034473 (2).mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <article id="button">
+                <a href="#" class="rock"><img src="E:\sabarish Frnt end dev\js eng\images.jpg" alt="rock image" title="rock image" width="100px" height="100px"></a>
+                <a href="#" class="paper"><img src="E:\sabarish Frnt end dev\js eng\img rise.png" alt="paper image" title="paper image" width="100px" height="100px"></a>
+                <a href="#" class="sissor"><img src="E:\sabarish Frnt end dev\js eng\sissor.png" alt="sissor image" title="sissor image" width="100px" height="100px"></a>
+                <link rel="stylesheet" href="E:\sabarish Frnt end dev\js eng\game.css">
+            </article>
+
+            <article id="whoplays">
+                <div>
+                    <h3>PLAYER: <span class="pla">----</span></h3>
+                    <h3>COMPUTER: <span class="com">----</span></h3>
+                </div>
+            </article>
+
+            <article id="result">
+                <h1 class="finalresult">LET's START THE GAME</h1>
+            </article>
+        </main>
+    </article>
+    <script>
+        
+    const btn=document.querySelector("#button")
+    console.log(btn)
+    const result=document.querySelector("#whoplays")
+    console.log(result)
+    const text1=result.querySelector(".pla")
+    console.log(text1)
+    const text2=result.querySelector(".com")
+    console.log(text2)
+    const resultval=document.querySelector("#result")
+    console.log(resultval)
+    const finalresult=resultval.querySelector(".finalresult")
+    console.log(finalresult)
+    
+
+    const rock1=btn.querySelector(".rock")
+    console.log(rock1)
+    const paper1=btn.querySelector(".paper")
+    console.log(paper1)
+    const sissor1=btn.querySelector(".sissor")
+    console.log(sissor1) 
+
+    const main=document.getElementById("main")
+    const ani=main.querySelector(".video-container")
+    console.log(ani)
+
+
+                     /*    ROCK   */ 
+
+    rock1.addEventListener("click",(action)=>{
+        let playerValue1=(Math.floor(Math.random())+1)
+        console.log(playerValue1)
+           if (playerValue1===1){
+                playerValue1="rock";
+                text1.textContent="ROCK"
+                text1.style.fontSize="30px"
+            }
+            else{
+                playerValue1="off"
+            }
+            let computerValue1=Math.floor(Math.random()*3)+1;
+            console.log(computerValue1)
+            if (computerValue1===1){
+                computerValue1="rock";
+                text2.textContent="ROCK";
+                text2.style.fontSize="30px"
+            }
+            else if(computerValue1===2){
+                computerValue1="paper";
+                text2.textContent="PAPER";
+                text2.style.fontSize="30px"
+            }
+            else if(computerValue1===3){
+                computerValue1="sissor";
+                text2.textContent="SISSORS";
+                text2.style.fontSize="30px"
+            }
+            else{
+                computer="shut down"
+            }
+            
+
+        switch (playerValue1){
+            case computerValue1:
+                finalresult.textContent="It's A TIE GAME"
+                ani.style.display="none"
+
+                break;
+
+            case "rock":            
+                if(computerValue1==="sissor"){
+                    finalresult.textContent="PLAYER WIN's"
+                    ani.style.display="flex"
+                }
+                else{
+                    finalresult.textContent="COMPUTER WIN's"
+                    ani.style.display="none"
+                }
+                break;
+
+            case "paper":            
+                if(computerValue1==="rock"){
+                    finalresult.textContent="PLAYER WIN's"
+                    ani.style.display="flex"
+                }
+                else{
+                    finalresult.textContent="COMPUTER WIN's"
+                    ani.style.display="none"
+                }
+                break;
+            case "sissor":            
+                if(computerValue1==="paper"){
+                    finalresult.textContent="PLAYER WIN's"
+                    ani.style.display="flex"
+                }
+                else{
+                    finalresult.textContent="COMPUTER WIN's"
+                    ani.style.display="none"
+
+                }
+                break; 
+        }
+        })
+
+                          /*     PAPER     */ 
+
+    paper1.addEventListener("click",(action)=>{
+        let playerValue2=(Math.floor(Math.random()*1)+2)
+        console.log(playerValue2)
+            if (playerValue2===2){
+                playerValue2="paper";
+                text1.textContent="PAPER"
+                text1.style.fontSize="30px"
+            }
+            else{
+                playerValue2="off"
+            }
+            let computerValue2=Math.floor(Math.random()*3)+1;
+            console.log(computerValue2)
+            if (computerValue2===1){
+                computerValue2="rock";
+                text2.textContent="ROCK";
+                text2.style.fontSize="30px"
+            }
+            else if(computerValue2===2){
+                computerValue2="paper";
+                text2.textContent="PAPER";
+                text2.style.fontSize="30px"
+            }
+            else if(computerValue2===3){
+                computerValue2="sissor";
+                text2.textContent="SISSORS";
+                text2.style.fontSize="30px"
+            }
+            else{
+                computer="shut down"
+            }
+
+    
+            switch (playerValue2){
+                case computerValue2:
+                    finalresult.textContent="It's A TIE GAME"
+                    ani.style.display="none"
+
+                    break;
+    
+                case "rock":            
+                    if(computerValue2==="sissor"){
+                        finalresult.textContent="PLAYER WIN's"
+                        ani.style.display="flex"
+                        
+
+                    }
+                    else{
+                        finalresult.textContent="COMPUTER WIN's"
+                        ani.style.display="none"
+                    }
+                    break;
+    
+                case "paper":            
+                    if(computerValue2==="rock"){
+                        finalresult.textContent="PLAYER WIN's"
+                        ani.style.display="flex"
+                    }
+                    else{
+                        finalresult.textContent="COMPUTER WIN's"
+                        ani.style.display="none"
+                    }
+                    break;
+                case "sissor":            
+                    if(computerValue2==="paper"){
+                        finalresult.textContent="PLAYER WIN's"
+                        ani.style.display="flex"
+                    }
+                    else{
+                        finalresult.textContent="COMPUTER WIN's"
+                        ani.style.display="none"
+                    }
+                    break; 
+            }
+
+        })
+
+/*  SISSOR*/ 
+    sissor1.addEventListener("click",(action1)=>{
+        let playerValue3=(Math.floor(Math.random()*1)+3)
+        console.log(playerValue3)
+        if (playerValue3===3){
+            playerValue3="sissor";
+            text1.textContent="SISSOR"
+            text1.style.fontSize="30px"
+        }
+        else{
+           playerValue3="off"
+        }
+        let computerValue3=Math.floor(Math.random()*3)+1;
+        console.log(computerValue3)
+        if (computerValue3===1){
+            computerValue3="rock";
+            text2.textContent="ROCK";
+            text2.style.fontSize="30px"
+        }
+        else if(computerValue3===2){
+            computerValue3="paper";
+            text2.textContent="PAPER";
+            text2.style.fontSize="30px"
+        }
+        else if(computerValue3===3){
+            computerValue3="sissor";
+            text2.textContent="SISSORS";
+            text2.style.fontSize="30px"
+        }
+        else{
+            computer3="shut down"
+        }
+
+        switch (playerValue3){
+            case computerValue3:
+                finalresult.textContent="It's A TIE GAME"
+                ani.style.display="none"
+                break;
+
+            case "rock":            
+                if(computerValue3==="sissor"){
+                    finalresult.textContent="PLAYER WIN's"
+                    ani.style.display="flex"
+                    
+
+                }
+                else{
+                    finalresult.textContent="COMPUTER WIN's"
+                    ani.style.display="none"
+                }
+                break;
+
+            case "paper":            
+                if(computerValue3==="rock"){
+                    finalresult.textContent="PLAYER WIN's"
+                    ani.style.display="flex"
+                }
+                else{
+                    finalresult.textContent="COMPUTER WIN's"
+                    ani.style.display="none"
+                }
+                break;
+            case "sissor":            
+                if(computerValue3==="paper"){
+                    finalresult.textContent="PLAYER WIN's"
+                    ani.style.display="flex"
+                }
+                else{
+                    finalresult.textContent="COMPUTER WIN's"
+                    ani.style.display="none"
+                }
+                break; 
+        }
+    })
+
+    
+
+
+
+   
+    </script>
+</body>
+</html>

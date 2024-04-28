@@ -1,0 +1,159 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* BODY STYLING */
+
+body{
+    height: 100vh;
+    width: 100vw;
+/*     background: rgb(156,222,222);
+    background: linear-gradient(349deg, rgba(156,222,222,1) 0%, rgba(196,190,158,1) 66%); */
+    background: url('image1_0 (4).jpg');
+    background-size: 100%;
+    background-size: cover;
+    user-select: none;
+}
+body::before{
+    opacity: 0.5
+}
+
+/* CONTENT STYLING */
+
+#allcon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+
+}
+#top{
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 52px;
+    font-weight: 700;
+}
+#main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+/* BUTTON STYLING */
+
+
+#button a img{
+    border-radius: 30%;
+    height: 100px;
+    width: 100px;
+    padding: 10px;
+    border: 2px solid black;
+}
+#button a{
+    padding: 30px;
+    padding-top: 40px;
+}
+#button a img:hover{
+    padding: 0;
+    transition-duration: .5s;
+    transition-timing-function: ease-in-out;
+}
+#whoplays{
+    font-size: 20px;
+    padding: 30px;
+    padding-top: 40px;
+}
+#whoplays div h3{
+    padding: 10px;
+}
+#whoplays div h3 .pla{
+    color: blueviolet;
+}
+#whoplays div h3 .com{
+    color: rgb(226, 43, 43);
+}
+
+#result{
+    font-family: "Lugrasimo", cursive;
+    font-weight: 400;
+    font-style: bold;
+    font-size: 40px;
+}
+
+/* ANIMATION STYLING */
+
+.video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -11;
+    display: none;  
+  }
+  
+  #background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the entire container */
+  }
+
+
+/* MEDIA QUERRY*/
+
+@media screen and (min-width:330px) and (max-width:712px) {
+    #top{
+        font-family: "Pacifico", cursive;
+        font-weight: 200;
+        font-style: normal;
+        font-size: 30px;
+
+    }
+    #result{
+        font-family: "Lugrasimo", cursive;
+        font-weight: 200;
+        font-style: bold;
+        font-size: 30px;
+    }
+
+
+}
+
+
+@media screen and (max-width:329px) {
+    #button a img{
+        border-radius: 30%;
+        height: 80px;
+        width: 80px;
+        padding: 10px;
+        border: 2px solid black;
+    }
+    #top{
+        font-family: "Pacifico", cursive;
+        font-weight: 200;
+        font-style: normal;
+        font-size: 22px;
+
+    }
+    #result{
+        font-family: "Lugrasimo", cursive;
+        font-weight: 200;
+        font-style: bold;
+        font-size: 24px;
+    }
+    #whoplays{
+        font-size: 20px;
+        padding: 30px;
+        padding-top: 0px;
+    }
+    
+
+}
